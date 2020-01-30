@@ -4,7 +4,6 @@ import com.project.NotifcationService.NotificationService.dto.NotificationReciev
 import com.project.NotifcationService.NotificationService.dto.NotificationResponseDTO;
 import com.project.NotifcationService.NotificationService.entity.NotificationEntity;
 import com.project.NotifcationService.NotificationService.service.NotificationService;
-import com.sun.nio.sctp.Notification;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,7 +26,6 @@ public class NotificationController {
         return new ResponseEntity<String>(notificationEntity.getNotificationId(),HttpStatus.CREATED);
     }
 
-
     @GetMapping(value="/")
     public List<NotificationEntity>findAllNotification(){
         List<NotificationEntity>notificationEntityList=notificationService.findAllNotifications();
@@ -47,13 +45,10 @@ public class NotificationController {
         BeanUtils.copyProperties(notificationEntity,notificationResponseDTO);
         return new ResponseEntity<NotificationResponseDTO>(notificationResponseDTO,HttpStatus.FOUND);
     }
+
     @DeleteMapping("/{id}")
     public HttpStatus deleteById(@PathVariable(value="id")String id){
         notificationService.deleteById(id);
         return HttpStatus.OK;
     }
-
-
-
-
 }
