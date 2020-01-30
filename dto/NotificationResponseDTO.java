@@ -1,4 +1,5 @@
 package com.project.NotifcationService.NotificationService.dto;
 
-public class NotificationDTO {
+public class NotificationResponseDTO {
+
 }
